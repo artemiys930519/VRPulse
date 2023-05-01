@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Infrastructure.Factory
 {
-    public interface IObjectFactory
+    public interface IFactory
     {
         UniTask<GameObject> CreateObject(string itemName);
         UniTask<GameObject> LoadObject(string itemName);

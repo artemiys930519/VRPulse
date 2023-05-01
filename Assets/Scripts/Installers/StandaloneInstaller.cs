@@ -1,6 +1,7 @@
-using VR.Player;
-using VR.Player.Interfaces;
+using Infrastructure.AssetManagement;
+using Infrastructure.Factory;
 using Zenject;
+using IFactory = Infrastructure.Factory.IFactory;
 
 namespace Installers
 {
@@ -8,7 +9,6 @@ namespace Installers
     {
         public override void InstallBindings()
         {
-            Container.Bind<IHandTrackingChecker>().To<OculusTrackingChecker>().AsTransient();
         }
     }
 }

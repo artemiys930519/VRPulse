@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Infrastructure.Factory
 {
-    public class Factory : IObjectFactory
+    public class Factory : IFactory
     {
         private IAssets _assets;
 

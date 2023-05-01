@@ -1,14 +1,16 @@
-using VR.Player;
-using VR.Player.Interfaces;
+using Infrastructure.Factory;
+using UnityEngine;
 using Zenject;
 
 namespace Installers
 {
     public class NetworkInstaller : MonoInstaller
     {
+        [SerializeField] private NetworkFactory _networkFactory;
+        
         public override void InstallBindings()
         {
-            Container.Bind<IHandTrackingChecker>().To<OculusTrackingChecker>().AsTransient();
+            Container.Bind<NetworkFactory>().FromInstance(_networkFactory);
         }
     }
 }
