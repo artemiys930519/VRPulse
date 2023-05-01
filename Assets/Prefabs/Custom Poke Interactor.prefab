@@ -121,7 +121,7 @@ MonoBehaviour:
   m_PokeInteractionOffset: 0.005
   m_PhysicsLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 160
   m_PhysicsTriggerInteraction: 1
   m_RequirePokeFilter: 1
   m_EnableUIInteraction: 1
