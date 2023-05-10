@@ -10,7 +10,7 @@ namespace VR.Player
     {
         #region Inspector
 
-        [SerializeField] private List<PositionSwitcherData> _interactGameObject = new();
+        [SerializeField] private List<PositionSwitcherData> _handInteractorGameObjects = new();
 
         #endregion
 
@@ -25,7 +25,7 @@ namespace VR.Player
 
         void Start()
         {
-            foreach (PositionSwitcherData switcherData in _interactGameObject)
+            foreach (PositionSwitcherData switcherData in _handInteractorGameObjects)
             {
                 switcherData.LocalStartPosition = switcherData.SwitcherGameObject.transform.localPosition;
             }
@@ -38,14 +38,14 @@ namespace VR.Player
         
             _handTrackingActiveState = _handTrackingChecker.IsHandTrackingEnable();
 
-            SwitchPosition(_handTrackingActiveState);
+            SwitchHandInteractorPosition(_handTrackingActiveState);
         }
 
-        private void SwitchPosition(bool isSwitchPosition)
+        private void SwitchHandInteractorPosition(bool isSwitchPosition)
         {
-            for (int i = 0; i < _interactGameObject.Count; i++)
+            for (int i = 0; i < _handInteractorGameObjects.Count; i++)
             {
-                PositionSwitcherData tempSwitcherData = _interactGameObject[i];
+                PositionSwitcherData tempSwitcherData = _handInteractorGameObjects[i];
 
                 tempSwitcherData.SwitcherGameObject.transform.localPosition = isSwitchPosition
                     ? tempSwitcherData.LocalCorrectionPosition

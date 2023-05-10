@@ -1,7 +1,4 @@
-using Infrastructure.AssetManagement;
-using Infrastructure.Factory;
 using Zenject;
-using IFactory = Infrastructure.Factory.IFactory;
 
 namespace Installers
 {
