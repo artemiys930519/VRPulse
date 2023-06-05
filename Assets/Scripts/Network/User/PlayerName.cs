@@ -1,5 +1,6 @@
 ﻿using Shared;
 using TMPro;
+using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
 using Zenject;
@@ -10,7 +11,7 @@ namespace Network.User
     {
         #region Inspector
 
-        [SerializeField] private NetworkVariable<string> _playerName = new();
+        [SerializeField] private NetworkVariable<FixedString64Bytes> _playerName = new();
         [SerializeField] private TMP_Text _playerNameTextField;
         #endregion
         
@@ -26,18 +27,20 @@ namespace Network.User
         {
             _playerName.OnValueChanged += OnValueChanged;
             
-            SetUserNameServerRpc(_clientData.UserName);
+            SetUserNameServerRpc(new FixedString64Bytes(_clientData.UserName));
+        }
+
+        private void OnValueChanged(FixedString64Bytes previousValue, FixedString64Bytes newValue)
+        {
+            _playerNameTextField.text = newValue.Value;
         }
 
         [ServerRpc]
-        private void SetUserNameServerRpc(string userName)
+        private void SetUserNameServerRpc(FixedString64Bytes userName)
         {
+            
             _playerName.Value = userName;
         }
 
-        private void OnValueChanged(string previousValue, string newValue)
-        {
-            _playerNameTextField.text = newValue;
-        }
     }
 }
