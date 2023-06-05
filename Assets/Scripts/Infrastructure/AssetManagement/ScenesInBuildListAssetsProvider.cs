@@ -45,12 +45,10 @@ namespace Infrastructure.AssetManagement
 
         public void Report(float value)
         {
-            Debug.Log(value);
             LoadingSceneInPersentValue?.Invoke(value);
 
             if (value >= 1)
             {
-                Debug.Log("Scene load");
                 SceneLoad?.Invoke();
             }
         }
