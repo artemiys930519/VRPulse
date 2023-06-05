@@ -9,8 +9,8 @@ namespace Infrastructure.Factory
         private IFactory _factory;
         private void Start()
         {
-            _factory = new Factory(
-                new AddressableAssetsProvider(AssetPath.GetRemoteCatalogPath(), OnInitializeComplete));
+            //_factory = new Factory(
+            //    new AddressableAssetsProvider(AssetPath.GetRemoteCatalogPath(), OnInitializeComplete));
         }
 
         private void OnInitializeComplete()
