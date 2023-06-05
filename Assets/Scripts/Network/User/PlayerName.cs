@@ -33,10 +33,19 @@ namespace Network.User
             SetUserNameServerRpc(new FixedString64Bytes(_clientData.UserName));
         }
 
+        public void SetPlayerName(string name)
+        {
+            _playerNameTextField.text = name;
+        }
+
         private void OnValueChanged(FixedString64Bytes previousValue, FixedString64Bytes newValue)
         {
             if (IsLocalPlayer)
-                _playerNameTextField.text = newValue.Value;
+                SetPlayerName(newValue.Value);
+            else
+            {
+                GetComponent<PlayerName>().SetPlayerName(newValue.Value);
+            }
         }
 
         [ServerRpc(RequireOwnership = false)]
