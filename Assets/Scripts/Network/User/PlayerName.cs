@@ -25,6 +25,9 @@ namespace Network.User
 
         public override void OnNetworkSpawn()
         {
+            if (IsServer)
+                return;
+            
             _playerName.OnValueChanged += OnValueChanged;
             
             SetUserNameServerRpc(new FixedString64Bytes(_clientData.UserName));
