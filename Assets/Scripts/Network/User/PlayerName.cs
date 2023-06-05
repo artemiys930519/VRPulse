@@ -11,7 +11,7 @@ namespace Network.User
     {
         #region Inspector
 
-        [SerializeField] private NetworkVariable<FixedString64Bytes> _playerName;
+        [SerializeField] private NetworkVariable<FixedString64Bytes> _playerName = new();
         [SerializeField] private TMP_Text _playerNameTextField;
 
         #endregion
@@ -28,14 +28,13 @@ namespace Network.User
         {
             if (IsServer)
                 return;
-            
-            if (!IsLocalPlayer)
-                return;
-                
-            _playerName = new();
+
             _playerName.OnValueChanged += OnValueChanged;
-            
+
+            if (IsOwner)
                 SetUserNameServerRpc(new FixedString64Bytes(_clientData.UserName));
+            else
+                SetPlayerName(_playerName.Value.Value);
         }
 
         public void SetPlayerName(string name)
@@ -44,16 +43,11 @@ namespace Network.User
         }
 
         private void OnValueChanged(FixedString64Bytes previousValue, FixedString64Bytes newValue)
-        {
-            if (IsLocalPlayer)
-                SetPlayerName(newValue.Value);
-            else
-            {
-                GetComponent<PlayerName>().SetPlayerName(_playerName.Value.Value);
-            }
+        {                
+            SetPlayerName(newValue.Value);
         }
 
-        [ServerRpc(RequireOwnership = false)]
+        [ServerRpc]
         private void SetUserNameServerRpc(FixedString64Bytes userName)
         {
             _playerName.Value = userName;
