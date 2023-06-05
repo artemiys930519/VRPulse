@@ -19,6 +19,12 @@ namespace Infrastructure.Audio
 
         private IRtcEngine _mRtcEngine = null;
 
+        private void Start()
+        {
+            Init();
+            StartConversation();
+        }
+
         public void Init()
         {
             _appID = _appIdInput.appID;
