@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310468f085ef24732beac714c9bb64fd, type: 3}
   m_Name: AppIdInput
   m_EditorClassIdentifier: 
-  appID: c50c2789ecb54e5783ac5cc5829a6b8f
-  token: c67f18d868004e7ab69be5ebf349eb8e
+  appID: f2e1aa974684475381cc42f1ef09b0fd
+  token: 007eJxTYGARuS3Y9p+LR+Oq/MvTklPT1Q/L9pT92pwcJhu+oae89ZoCQ5pRqmFioqW5iZmFiYm5qbGFYXKyiVGaYWqagWWSQVpKyaHalIZARoZD6qIsjAwQCOLzMYQVBZTmFKc6ZyTm5aXmMDAAABaWIdQ=
   channelName: VrPulseChannel
