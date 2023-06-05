@@ -11,12 +11,12 @@ namespace Network
         private NetworkManager _networkManager;
         private UnityTransport _unityTransport;
         
-        private IServerData _serverData;
+        private IServerRepository _serverRepository;
 
         [Inject]
-        private void Construct(IServerData serverData)
+        private void Construct(IServerRepository serverRepository)
         {
-            _serverData = serverData;
+            _serverRepository = serverRepository;
         }
 
         private void Start()
@@ -24,7 +24,9 @@ namespace Network
             _networkManager = GetComponent<NetworkManager>();
             _unityTransport = GetComponent<UnityTransport>();
             
-            SetConnectionInfo(_serverData.IP,_serverData.Port);
+            ServerData serverData = _serverRepository.GetServerInfo();
+            
+            SetConnectionInfo(serverData.IP,serverData.Port);
             
 #if UNITY_SERVER
         ServerConnection();
