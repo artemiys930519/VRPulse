@@ -13,8 +13,9 @@ namespace Network.User
 
         [SerializeField] private NetworkVariable<FixedString64Bytes> _playerName = new();
         [SerializeField] private TMP_Text _playerNameTextField;
+
         #endregion
-        
+
         private IClientData _clientData;
 
         [Inject]
@@ -27,10 +28,10 @@ namespace Network.User
         {
             if (IsServer)
                 return;
-            
+
             _playerName.OnValueChanged += OnValueChanged;
-            
-            SetUserNameServerRpc(new FixedString64Bytes(_clientData.UserName));
+            if (IsLocalPlayer)
+                SetUserNameServerRpc(new FixedString64Bytes(_clientData.UserName));
         }
 
         public void SetPlayerName(string name)
@@ -44,7 +45,7 @@ namespace Network.User
                 SetPlayerName(newValue.Value);
             else
             {
-                GetComponent<PlayerName>().SetPlayerName(newValue.Value);
+                GetComponent<PlayerName>().SetPlayerName(_playerName.Value.Value);
             }
         }
 
