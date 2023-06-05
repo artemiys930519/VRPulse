@@ -11,7 +11,7 @@ namespace Network.User
 
         public override void OnNetworkSpawn()
         {
-            _playerCamera.enabled = IsLocalPlayer;
+            _playerCamera.gameObject.SetActive(IsLocalPlayer);
             _movementSystem.enabled = IsLocalPlayer;
         }
     }

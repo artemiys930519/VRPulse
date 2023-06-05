@@ -35,15 +35,14 @@ namespace Network.User
 
         private void OnValueChanged(FixedString64Bytes previousValue, FixedString64Bytes newValue)
         {
-            _playerNameTextField.text = newValue.Value;
+            if (IsLocalPlayer)
+                _playerNameTextField.text = newValue.Value;
         }
 
         [ServerRpc(RequireOwnership = false)]
         private void SetUserNameServerRpc(FixedString64Bytes userName)
         {
-            
             _playerName.Value = userName;
         }
-
     }
 }
