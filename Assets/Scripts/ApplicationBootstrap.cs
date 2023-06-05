@@ -21,9 +21,13 @@ public class ApplicationBootstrap : MonoBehaviour
     private void Start()
     {
         _sceneLoader = new SceneLoader(new ScenesInBuildListAssetsProvider());
+    }
+
+    public void StartSceneWithName(string name)
+    {
         _sceneLoader.LoadSceneAsync(Enumenators.SceneType.NetworkInfrastructureScene.ToString());
         _sceneLoader.LoadSceneAsync(Enumenators.SceneType.EnviromentScene.ToString(), LoadSceneMode.Additive);
-        _clientData.UserName = "Artem";
+        _clientData.UserName = name;
     }
 
     private void OnDisable()

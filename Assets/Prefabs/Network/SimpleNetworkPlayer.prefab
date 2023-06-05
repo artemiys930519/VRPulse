@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7483825027431285271}
+  - component: {fileID: 2173110171462648142}
+  - component: {fileID: 6052856898914775628}
   - component: {fileID: 6367933923126305964}
   - component: {fileID: 9108573054660102008}
-  - component: {fileID: 3506000603490031834}
+  - component: {fileID: 2996724983107402896}
   m_Layer: 0
   m_Name: SimpleNetworkPlayer
   m_TagString: Untagged
@@ -37,6 +39,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2173110171462648142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091355687008376132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81c84eb2b4134c96955677049269ee1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCamera: {fileID: 516812122022457748}
+  _movementSystem: {fileID: 6052856898914775628}
+--- !u!114 &6052856898914775628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091355687008376132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd67631bbe6444ea596a05a12d44a0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6367933923126305964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +163,7 @@ MonoBehaviour:
   AlwaysReplicateAsRoot: 0
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &3506000603490031834
+--- !u!114 &2996724983107402896
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,15 +172,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1091355687008376132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _components:
-  - {fileID: 6367933923126305964}
-  _identifier: 
-  _useSceneContext: 0
-  _context: {fileID: 0}
-  _bindType: 0
+  _containerSource: 2
 --- !u!1 &2114217692503616585
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,6 @@ namespace Installers
         {
             Container.Bind<IServerRepository>().To<ServerRepository>().AsSingle();
             Container.Bind<IClientData>().To<ClientData>().AsSingle();
-
         }
     }
 }
