@@ -38,7 +38,7 @@ namespace Network.User
             _playerNameTextField.text = newValue.Value;
         }
 
-        [ServerRpc]
+        [ServerRpc(RequireOwnership = false)]
         private void SetUserNameServerRpc(FixedString64Bytes userName)
         {
             
