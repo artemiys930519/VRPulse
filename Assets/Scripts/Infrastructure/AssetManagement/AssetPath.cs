@@ -5,8 +5,8 @@ namespace Infrastructure.AssetManagement
 {
     public class AssetPath
     {
-        private static string _basePath = "";
-        private static readonly string _catalogName = "";
+        private static string _basePath = "https://storage.yandexcloud.net/st-scenes/dev/bears";
+        private static readonly string _catalogName = "catalog_Sense.json";
 
         public static string GetRemoteCatalogPath() 
         {

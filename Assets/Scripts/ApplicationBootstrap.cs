@@ -25,7 +25,7 @@ public class ApplicationBootstrap : MonoBehaviour
 
     public void StartSceneWithName(string name)
     {
-        _sceneLoader.LoadSceneAsync(Enumenators.SceneType.NetworkInfrastructureScene.ToString());
+        _sceneLoader.LoadSceneAsync(Enumenators.SceneType.InfrastructureScene.ToString());
         _sceneLoader.LoadSceneAsync(Enumenators.SceneType.EnviromentScene.ToString(), LoadSceneMode.Additive);
         _clientData.UserName = name;
     }

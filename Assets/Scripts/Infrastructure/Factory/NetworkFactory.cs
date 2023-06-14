@@ -9,13 +9,12 @@ namespace Infrastructure.Factory
         private IFactory _factory;
         private void Start()
         {
-            //_factory = new Factory(
-            //    new AddressableAssetsProvider(AssetPath.GetRemoteCatalogPath(), OnInitializeComplete));
+            _factory = new Factory(
+                new AddressableAssetsProvider("https://storage.yandexcloud.net/st-scenes/dev/bears", OnInitializeComplete));
         }
 
         private void OnInitializeComplete()
         {
-            
         }
     }
 }
